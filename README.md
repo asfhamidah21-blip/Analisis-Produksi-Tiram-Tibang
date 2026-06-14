@@ -34,8 +34,7 @@ https://colab.research.google.com/drive/1bf0btvpzSInUl0zIcFrfer4BFq6bbJUC?usp=sh
 
 ##4. Visualisasi
 Grafik hubungan antara variabel independen dan dependen:
-![Scatterplot Luas Mangrove vs Produksi](link-gambar-1.png)
-![Scatterplot Suhu Perairan vs Produksi](link-gambar-2.png)
+https://github.com/asfhamidah21-blip/Analisis-Produksi-Tiram-Tibang/blob/main/download.png
 
 Gambar-1 di atas menunjukkan tren positif antara luas mangrove dan produksi tiram.
 Gambar-2 di atas menunjukkan tren negatif antara suhu perairan dan produksi tiram.
