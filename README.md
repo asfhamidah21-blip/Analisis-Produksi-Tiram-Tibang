@@ -30,7 +30,7 @@ Hasil utama:
 - Nilai p-value untuk Suhu Perairan: 0.00.maka berpengaruh signifikan.
 
 Analisis lengkap dengan kode dan uji asumsi klasik bisa dilihat di notebook:
-[Link Notebook Colab/GitHub kamu]
+https://colab.research.google.com/drive/1bf0btvpzSInUl0zIcFrfer4BFq6bbJUC?usp=sharing
 
 ##4. Visualisasi
 Grafik hubungan antara variabel independen dan dependen:
@@ -44,7 +44,6 @@ Gambar-2 di atas menunjukkan tren negatif antara suhu perairan dan produksi tira
 Berdasarkan hasil analisis, berikut rekomendasi untuk petani dan pemerintah desa:
 1. Jaga dan perluas areal mangrove: Hasil menunjukkan bahwa peningkatan luas mangrove berkorelasi positif dengan produksi tiram. Program reboisasi mangrove perlu diprioritaskan.
 2. Monitoring suhu perairan: Suhu yang terlalu tinggi/tinggi berpengaruh negatif. Perlu sistem monitoring suhu untuk menentukan waktu panen yang optimal.
-3. Perencanaan panen berbasis data: Gunakan model ini untuk memprediksi hasil panen 3-6 bulan ke depan berdasarkan kondisi lingkungan saat ini.
 
 ##6. Keterbatasan dan Validitas Model
 Model ini memiliki beberapa keterbatasan:
