@@ -1,56 +1,29 @@
-#Penerapan Regresi Linier Berganda untuk Menganalisis Pengaruh Luas Areal *Mangrove* dan Suhu Perairan terhadap Produksi Tiram
-*Studi Kasus: Desa Tibang, Banda Aceh*
+# Analisis Pengaruh Mangrove & Suhu terhadap Produksi Tiram
+*Studi Kasus: Desa Tibang, Banda Aceh 2010-2022*
 
-##1. Problem Bisnis
-Petani tiram di Desa Tibang mengalami fluktuasi produksi yang tidak stabil setiap musim. Hal ini menyulitkan perencanaan dan pendapatan. Penelitian ini bertujuan menganalisis sebarapa besar pengaruh luas areal mangrove dan suhu perairan terhadap produksi tiram, agar bisa dibuat rekomendasi berbasis data untuk menjaga stabilitas produksi
+## Hasil Utama
+Model regresi berganda menunjukkan **73.9% variasi produksi tiram** bisa dijelaskan oleh luas mangrove dan suhu perairan.
 
-##2. Data & Cleaning 
+- **Luas mangrove**: Berpengaruh positif & signifikan (p < 0.001)
+- **Suhu perairan**: Berpengaruh signifikan (p < 0.001), tapi hubungannya linear tapi hasil nya hanya optimal di rentang suhu tertentu
 
-  Data yang digunakan adalah data sekunder periode [2010-2022] dari Dinas Lingkungan Hidup, Kebersihan dan Keindahan Kota Banda Aceh (DLHK3) & catatan nelayan tiram.
-- Variabel dependen (Y): Produksi tiram (ton/bulan)
-- Variabel independen (X): Luas areal mangrove (hektar)
-- Variabel independen (X2): Suhu perairan (°C)
+![Scatter Plot Luas Mangrove vs Produksi](download.png)
 
-  Proses cleaning yang dilakukan:
-- Mengecek outlier menggunakan metode Interquartile Range(IQR) untuk variabel luas areal mangrove, suhu perairan dan produksi tiram
-  Hasil menunjukkan:
-- Luas areal: 0 outlier dari 45 data (0%)
-- Suhu perairan: 1 outlier dari 45 data (2.2%), data tersebut tidak bisa dihapus untuk menjaga keutuhan dataset asli
-- Produksi tiram: 0 outlier dari 45 data (0%)
+## Insight Bisnis
+1. **Prioritaskan reboisasi mangrove**: Setiap kenaikan 1 ha mangrove berkorelasi dengan kenaikan produksi.
+2. **Monitoring suhu panen**: Suhu optimal tiram ada di 27-30°C. Di luar itu, produksi turun/ daging tiram tidak banyak dihasilkan.
 
-##3. Analisis Regresi Linier Berganda
-Model regresi linier berganda digunakan untuk melihat hubungan simultan antara luas mangrove dan suhu perairan terhadap produksi tiram.
+## Limitasi & Next Steps
+Model linear belum menangkap efek "suhu optimal" 27-30°C. Sudah dicoba model kuadratik tapi fit-nya belum lebih baik karena data sebagian besar berada di rentang optimal.  
+**Next**: Coba piecewise regression dengan binning suhu <27°C, 27-30°C, >30°C.
 
-Persamaan model:
-**Produksi = β0 + β1(Luas Mangrove) + β2(Suhu Perairan) + ε**
+Detail metodologi, uji asumsi klasik, dan kode lengkap:  
+👉 [Buka Notebook Colab](https://colab.research.google.com/drive/1bf0btvpzSInUl0zIcFrfer4BFq6bbJUC?usp=sharing)
 
-Hasil utama:
-- Nilai R-squared: 0.739 → artinya 73.9% variasi produksi tiram dapat dijelaskan oleh luas mangrove dan suhu perairan.
-- Nilai p-value untuk Luas Mangrove: 0.00. maka berpengaruh signifikan.
-- Nilai p-value untuk Suhu Perairan: 0.00.maka berpengaruh signifikan.
+## Cara Jalanin
+1. Buka link Colab di atas
+2. Run all cells  
+   *Dataset sudah di-upload ke repo, jadi nggak perlu upload manual*
 
-Analisis lengkap dengan kode dan uji asumsi klasik bisa dilihat di notebook:
-https://colab.research.google.com/drive/1bf0btvpzSInUl0zIcFrfer4BFq6bbJUC?usp=sharing
-
-##4. Visualisasi
-Grafik hubungan antara variabel independen dan dependen:
-https://github.com/asfhamidah21-blip/Analisis-Produksi-Tiram-Tibang/blob/main/download.png
-
-Gambar-1 di atas menunjukkan tren positif antara luas mangrove dan produksi tiram.
-Gambar-2 di atas menunjukkan tren negatif antara suhu perairan dan produksi tiram.
-
-##5. Rekeomendasi Bisnis
-Berdasarkan hasil analisis, berikut rekomendasi untuk petani dan pemerintah desa:
-1. Jaga dan perluas areal mangrove: Hasil menunjukkan bahwa peningkatan luas mangrove berkorelasi positif dengan produksi tiram. Program reboisasi mangrove perlu diprioritaskan.
-2. Monitoring suhu perairan: Suhu yang terlalu tinggi/tinggi berpengaruh negatif. Perlu sistem monitoring suhu untuk menentukan waktu panen yang optimal.
-
-##6. Keterbatasan dan Validitas Model
-Model ini memiliki beberapa keterbatasan:
-
-Model regresi linier berganda mengasumsikan hubungan antara suhu perairan dan produksi tiram berbentuk garis lurus. 
-Namun, berdasarkan wawancara dengan nelayan tiram Desa Tibang, suhu optimal untuk pertumbuhan daging tiram berada di rentang 27-30°C. 
-Di luar rentang tersebut, produksi tetap ada namun hasil daging berkurang. 
-
-Artinya hubungan yang sebenarnya bersifat non-linier, mirip bentuk kurva parabola. 
-Karena keterbatasan model, efek penurunan produksi di suhu >30°C tidak tertangkap penuh oleh koefisien linier. 
-Untuk pengembangan selanjutnya, disarankan menggunakan regresi polinomial atau segmentasi data berdasarkan rentang suhu optimal.
+---
+**Tech Stack**: Python, Pandas, Scikit-learn, Statsmodels, Matplotlib
